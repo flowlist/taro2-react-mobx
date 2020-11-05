@@ -1,5 +1,7 @@
 # taro2-react-mobx
 
+[![npm package](https://badge.fury.io/js/%40flowlist%2Ftaro2-react-mobx.svg)](https://www.npmjs.com/package/@flowlist/taro2-react-mobx)  [![License](https://gitlicense.com/badge/flowlist/taro2-react-mobx)](https://github.com/flowlist/taro2-react-mobx/blob/master/LICENSE)
+
 ### Install
 
 ``` shell
@@ -70,6 +72,8 @@ ListView.defaultProps = defaultProps
 
 export default ListView
 ```
+
+- [className](https://github.com/flowlist/taro2-react-mobx/blob/main/src/store.js#L37)
 
 ### ListRender
 ``` javascript
