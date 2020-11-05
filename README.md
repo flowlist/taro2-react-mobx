@@ -97,9 +97,8 @@ function ListRender(props) {
       {
         state.result.map(item => (
           <ListItem
-            key={item.slug}
+            key={item.id}
             item={item}
-            params={props.params}
           />
         ))
       }
