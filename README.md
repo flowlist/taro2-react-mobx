@@ -105,3 +105,37 @@ function ListRender(props) {
 
 export default createComponent(ListRender)
 ```
+
+### Params
+| Name | Type | Default | Description |
+| --- | --- | --- | ---- |
+| `*`func | string \ function | - | 从 `vuex` 注入的 API 列表中的某个函数名，或一个 请求接口的函数\<Promise\> |
+| type | string | auto | `场景`值中的 type：`jump`、`page`、`sinceId`、`seenIds` |
+| query | object | - | 需要透传到 API 层的数据 |
+| uniqueKey | string | id | 每个元素在 v-for 的时候都需要一个 key，这个参数是 key 的键名 |
+
+
+### ListView Props
+```javascript
+export const defaultProps = {
+  launch: true,
+  scrollX: false,
+  displayNoMore: false,
+  store: {
+    state: {}
+  },
+  params: {}
+}
+```
+
+### More detail
+[@flowlist/js-core](https://github.com/flowlist/js-core)
+[@flowlist/vue-listview](https://github.com/flowlist/vue-listview)
+
+
+## Test
+see：[@flowlist/js-core](https://github.com/flowlist/js-core)
+
+## License
+
+[MIT](https://github.com/flowlist/taro2-react-mobx/blob/master/LICENSE)
