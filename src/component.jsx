@@ -1,9 +1,7 @@
 import Taro, { PureComponent } from '@tarojs/taro'
 import { View, Image, Block } from '@tarojs/components'
-import { observer } from '@tarojs/mobx'
 import './style.css'
 
-@observer
 class ListView extends PureComponent {
   componentDidMount () {
     this.ob = Taro.createIntersectionObserver(this.$scope, {
