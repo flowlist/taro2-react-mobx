@@ -1,6 +1,6 @@
 {
   "name": "@flowlist/taro2-react-mobx",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "listview for taro2",
   "main": "index.js",
   "scripts": {
