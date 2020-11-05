@@ -1,0 +1,31 @@
+{
+  "name": "@flowlist/taro2-react-mobx",
+  "version": "0.0.1",
+  "description": "listview for taro2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flowlist/taro2-react-mobx.git"
+  },
+  "keywords": [
+    "listview",
+    "taro2",
+    "mobx",
+    "react"
+  ],
+  "author": "falstack",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/flowlist/taro2-react-mobx/issues"
+  },
+  "homepage": "https://github.com/flowlist/taro2-react-mobx#readme",
+  "dependencies": {
+    "@flowlist/js-core": "^1.4.0",
+    "@tarojs/components": "2.2.15",
+    "@tarojs/mobx": "^2.2.10",
+    "@tarojs/taro": "2.2.15"
+  }
+}

@@ -1,0 +1,45 @@
+.list-view {
+  position: relative;
+  min-height: 100PX;
+  min-width: 100PX;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.list-view__tip {
+  color: #C0C0C0;
+  font-size: 14PX;
+  height: 44PX;
+  line-height: 44PX;
+  text-align: center;
+}
+
+.list-view__shim {
+  position: absolute;
+  width: 100PX;
+  height: 100PX;
+  z-index: -1;
+  background-color: transparent;
+  right: 0;
+  bottom: 0;
+}
+
+.list-view__state {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-view__img {
+  display: block;
+  width: 80vw;
+  height: 46vw;
+  margin-top: 100px;
+}
+
+.list-view__txt {
+  font-size: 12PX;
+  color: #657786;
+  text-align: center;
+}
