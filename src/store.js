@@ -1,31 +1,38 @@
 import Taro from '@tarojs/taro'
-import { useLocalStore, observer } from '@tarojs/mobx'
+import { observable, action } from 'mobx'
+import { observer } from '@tarojs/mobx'
 import { initData, loadMore, updateState, utils } from '@flowlist/js-core'
 import { setter, getter } from './utils'
 
-export const createStore = () => useLocalStore(() => ({
-  state: utils.generateDefaultField(),
+export const Store = class {
+  @observable state = utils.generateDefaultField()
+
+  @action.bound
   initData({ func, type, query, uniqueKey, callback }) {
     return initData({
       getter: getter(this.state), setter: setter(this.state),
       func, type, query, uniqueKey, callback
     })
-  },
+  }
+
+  @action.bound
   loadMore({ type, func, query, uniqueKey, errorRetry, callback }) {
     return loadMore({
       getter: getter(this.state), setter: setter(this.state),
       func, type, query, uniqueKey, errorRetry, callback
     })
-  },
+  }
+
+  @action.bound
   updateState({ type, func, query, id, method, changeKey, value, uniqueKey }) {
     updateState({
       getter: getter(this.state), setter: setter(this.state),
       type, func, query, method, value, id, uniqueKey, changeKey
     })
   }
-}))
+}
 
-export const createComponent = observer
+export const Observer = observer
 
 export const didMount = (self, {
   className
