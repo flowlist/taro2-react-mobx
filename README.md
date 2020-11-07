@@ -77,36 +77,38 @@ export default ListView
 
 ### ListRender
 ``` javascript
-import { createStore, createComponent } from '@flowlist/taro2-react-mobx'
+import Taro, { PureComponent } from '@tarojs/taro'
+import { createStore, reactive } from '@flowlist/taro2-react-mobx'
 import ListView from '~/components/ListView'
 import ListItem from '~/components/ListItem'
-import { getData } from '~/api'
+import { getData } from '~/utils/api'
 
-function ListRender(props) {
-  const store = createStore()
-
-  const { state } = store
-
-  const params = {
-    func: getData,
-    query: props.query
+@reactive
+export default class extends PureComponent {
+  constructor(props) {
+    super(props)
+    this.store = createStore()
+    this.params = {
+      func: getData
+    }
   }
 
-  return (
-    <ListView store={store} params={params}>
-      {
-        state.result.map(item => (
-          <ListItem
-            key={item.id}
-            item={item}
-          />
-        ))
-      }
-    </ListView>
-  )
+  render () {
+    return (
+      <ListView store={this.store} params={this.params}>
+        {
+          this.store.state.result.map(item => (
+            <ListItem
+              key={item.slug}
+              item={item}
+              params={this.props.params}
+            />
+          ))
+        }
+      </ListView>
+    )
+  }
 }
-
-export default createComponent(ListRender)
 ```
 
 ### Params

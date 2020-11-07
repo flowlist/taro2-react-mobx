@@ -4,7 +4,7 @@ import { observer } from '@tarojs/mobx'
 import { initData, loadMore, updateState, utils } from '@flowlist/js-core'
 import { setter, getter } from './utils'
 
-export const Store = class {
+const Store = class {
   @observable state = utils.generateDefaultField()
 
   @action.bound
@@ -32,7 +32,9 @@ export const Store = class {
   }
 }
 
-export const Observer = observer
+export const createStore = () => new Store()
+
+export const reactive = observer
 
 export const didMount = (self, {
   className
