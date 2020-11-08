@@ -33,7 +33,7 @@ const Store = class {
       is_up: 1
     }
 
-    return this.initData(params)
+    return this.loadMore(params)
   }
 
   @action.bound
