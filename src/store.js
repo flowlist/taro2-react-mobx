@@ -75,6 +75,17 @@ export const scrollTopFn = (self) => {
   })
 }
 
+export const refreshFn = (self) => {
+  self.props.store.initData({
+    ...self.props.params,
+    query: {
+      ...(self.props.params.query || {}),
+      __refresh__: true,
+      __reload__: true
+    }
+  })
+}
+
 export const didUnmount = (self) => {
   self.ob && self.ob.disconnect()
 }
@@ -85,6 +96,8 @@ export const defaultProps = {
   append: false,
   scrollX: false,
   displayNoMore: false,
+  enableBackToTop: false,
+  refresherEnabled: false,
   store: {
     state: {}
   },
