@@ -16,6 +16,27 @@ const Store = class {
   }
 
   @action.bound
+  refresh(params) {
+    params.query = {
+      ...(params.query || {}),
+      __refresh__: true,
+      __reload__: true
+    }
+
+    return this.initData(params)
+  }
+
+  @action.bound
+  loadBefore(params) {
+    params.query = {
+      ...(params.query || {}),
+      is_up: 1
+    }
+
+    return this.initData(params)
+  }
+
+  @action.bound
   loadMore({ type, func, query, uniqueKey, errorRetry, callback }) {
     return loadMore({
       getter: getter(this.state), setter: setter(this.state),
@@ -66,24 +87,11 @@ export const scrollBottomFn = (self) => {
 }
 
 export const scrollTopFn = (self) => {
-  self.props.store.loadMore({
-    ...self.props.params,
-    query: {
-      ...(self.props.params.query || {}),
-      is_up: 1
-    }
-  })
+  self.props.store.loadBefore(self.props.params)
 }
 
 export const refreshFn = (self) => {
-  self.props.store.initData({
-    ...self.props.params,
-    query: {
-      ...(self.props.params.query || {}),
-      __refresh__: true,
-      __reload__: true
-    }
-  })
+  self.props.store.refresh(self.props.params)
 }
 
 export const didUnmount = (self) => {
