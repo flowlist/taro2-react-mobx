@@ -5,9 +5,8 @@
 ### Install
 
 ``` shell
-yarn add @tarojs/mobx
-yarn add @flowlist/js-core
-yarn add @flowlist/taro2-react-mobx
+yarn add mobx@5.15.7 @tarojs/mobx @tarojs/mobx-h5 @tarojs/mobx-rn
+yarn add @flowlist/js-core @flowlist/taro2-react-mobx
 ```
 
 ### ListView
