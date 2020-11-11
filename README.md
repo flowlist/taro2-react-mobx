@@ -118,19 +118,10 @@ export default class extends PureComponent {
 | query | object | - | 需要透传到 API 层的数据 |
 | uniqueKey | string | id | 每个元素在 v-for 的时候都需要一个 key，这个参数是 key 的键名 |
 
+- more detail：[docs](https://flowlist.github.io/vue-listview/loader/props.html#props)
 
 ### ListView Props
-```javascript
-export const defaultProps = {
-  launch: true,
-  scrollX: false,
-  displayNoMore: false,
-  store: {
-    state: {}
-  },
-  params: {}
-}
-```
+[defaultProps](https://github.com/flowlist/taro2-react-mobx/blob/main/src/store.js)
 
 ### More detail
 [@flowlist/js-core](https://github.com/flowlist/js-core)

@@ -57,6 +57,12 @@ export const createStore = () => new Store()
 
 export const reactive = observer
 
+export const isScrollView = (self) => {
+  return self.props.append ||
+    self.props.enableBackToTop ||
+    self.props.refresherEnabled
+}
+
 export const didMount = (self, opts = {}) => {
   if (!opts.className) {
     return
@@ -76,7 +82,9 @@ export const didMount = (self, opts = {}) => {
       return
     }
 
-    if (!opts.scrollView) {
+    const useScrollView = isScrollView(self)
+
+    if (!useScrollView) {
       self.props.store.loadMore(self.props.params)
     }
   })
@@ -126,6 +134,7 @@ export const convertProps = (self) => {
     showNoMore,
     showLoading: loading,
     showNothing: nothing,
+    useScrollView: isScrollView(self),
     state
   }
 }
