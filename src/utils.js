@@ -2,7 +2,9 @@ export const getter = state => () => state
 
 export const setter = state => ({ type, value, callback }) => {
   if (type === 0) {
-    state = value
+    Object.keys(value).forEach(key => {
+      state[key] = value[key]
+    })
   } else if (type === 1) {
     state = {
       ...(state || {}),
