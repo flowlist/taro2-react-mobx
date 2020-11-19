@@ -31,7 +31,7 @@ class ListView extends PureComponent {
   }
 
   render () {
-    const { showError, showNoMore, showLaunch, showNothing, state } = convertProps(this)
+    const { showError, showNoMore, showLaunch, showNothing, errorMessage } = convertProps(this)
 
     return (
       <View className='list-view'>
@@ -52,7 +52,7 @@ class ListView extends PureComponent {
           ) : showError ? (
             <View className='list-view__state'>
               <Image className='list-view__img' mode='aspectFit' src={Error} />
-              <View className='list-view__txt'>{ state.error.message || '网络错误' }</View>
+              <View className='list-view__txt'>{ errorMessage }</View>
             </View>
           ) : <Block>
             {this.props.children}

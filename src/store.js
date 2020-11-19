@@ -122,11 +122,19 @@ export const defaultProps = {
 
 export const convertProps = (self) => {
   const { launch, store, displayNoMore } = self.props
-  const { state, state: { loading, nothing, noMore, fetched, error, total } } = store
+  const { state: { loading, nothing, noMore, fetched, error, total } } = store
 
   const showError = error && launch && !total
   const showNoMore = noMore && displayNoMore
   const showLaunch = loading && launch && !fetched
+  const isEmpty = !launch && nothing
+  const errorMessage = error
+    ? (
+      self.errorConvert && typeof self.errorConvert === 'function'
+        ? self.errorConvert(error)
+        : error.message || '网络错误'
+    )
+    : ''
 
   return {
     showError,
@@ -135,6 +143,7 @@ export const convertProps = (self) => {
     showLoading: loading,
     showNothing: nothing,
     useScrollView: isScrollView(self),
-    state
+    isEmpty,
+    errorMessage
   }
 }
